@@ -25,16 +25,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME_GROUP + " ("
-                + COLUMN_ID_GROUP + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_NUMBER + " TEXT NOT NULL);");
 
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_ID_GROUP + " INTEGER NOT NULL,"
+//                + COLUMN_ID_GROUP + " INTEGER NOT NULL,"
                 + COLUMN_FIRST_NAME + " TEXT NOT NULL,"
                 + COLUMN_LAST_NAME + " TEXT NOT NULL,"
-                + COLUMN_AGE + " INTEGER NOT NULL),"
-                + "FOREIGN KEY(" + COLUMN_ID_GROUP + ") REFERENCES " + TABLE_NAME_GROUP + "(id));");
+                + COLUMN_AGE + " INTEGER NOT NULL);");
+//                + "FOREIGN KEY(" + COLUMN_ID_GROUP + ") REFERENCES " + TABLE_NAME_GROUP + "(id));");
 
 
     }
@@ -109,11 +109,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor = null;
 
         try {
-            cursor = db.query(TABLE_NAME_GROUP, null, COLUMN_ID_GROUP + "=" + id, null, null, null, null);//ищем указанную группу
+            cursor = db.query(TABLE_NAME_GROUP, null, COLUMN_ID + "=" + id, null, null, null, null);//ищем указанную группу
             if (cursor.moveToFirst()) {//проверяем что что-то нашло
                 group = new Group();// заполняем группу
 
-                group.id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID_GROUP));
+                group.id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID));
                 group.Number = cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER));
 
             }

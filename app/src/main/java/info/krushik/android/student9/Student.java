@@ -10,14 +10,14 @@ public class Student implements Parcelable {
     public String LastName;
     public long Age;
 
-    public Student() {
-    }
-
     public Student(long idGroup, String firstName, String lastName, long age) {
         this.idGroup = idGroup;
         FirstName = firstName;
         LastName = lastName;
         Age = age;
+    }
+
+    public Student() {
     }
 
     public Student(String firstName, String lastName, long age) {

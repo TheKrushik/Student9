@@ -16,6 +16,7 @@ public class MyIntentService extends IntentService {//IntentService работа
     private static final String ACTION_GET_GROUP = "info.krushik.android.student9.action.GET_GROUP";
 
     public static final String EXTRA_PENDING_INTENT = "info.krushik.android.student9.extra.PENDING_INTENT";
+    public static final String EXTRA_PENDING_INTENT_GROUP = "info.krushik.android.student9.extra.PENDING_INTENT_GROUP";
     public static final String EXTRA_STUDENT = "info.krushik.android.student9.extra.STUDENT";
     public static final String EXTRA_ID = "info.krushik.android.student9.extra.ID";
     public static final String EXTRA_GROUP = "info.krushik.android.student9.extra.GROUP";
@@ -59,7 +60,7 @@ public class MyIntentService extends IntentService {//IntentService работа
         Intent intent = new Intent(context, MyIntentService.class);
 
         PendingIntent pendingIntent = ((AppCompatActivity) context).createPendingResult(REQUEST_CODE_SAVE_GROUP, intent, 0);
-        intent.putExtra(EXTRA_PENDING_INTENT, pendingIntent);//пендинг первым ложить
+        intent.putExtra(EXTRA_PENDING_INTENT_GROUP, pendingIntent);//пендинг первым ложить
 
         intent.setAction(ACTION_SAVE_GROUP);
         intent.putExtra(EXTRA_GROUP, group);
@@ -70,7 +71,7 @@ public class MyIntentService extends IntentService {//IntentService работа
         Intent intent = new Intent(context, MyIntentService.class);
 
         PendingIntent pendingIntent = ((AppCompatActivity) context).createPendingResult(REQUEST_CODE_GET_GROUP, intent, 0);
-        intent.putExtra(EXTRA_PENDING_INTENT, pendingIntent);//пендинг первым ложить
+        intent.putExtra(EXTRA_PENDING_INTENT_GROUP, pendingIntent);//пендинг первым ложить
 
         intent.setAction(ACTION_GET_GROUP);
         intent.putExtra(EXTRA_ID_GROUP, id);

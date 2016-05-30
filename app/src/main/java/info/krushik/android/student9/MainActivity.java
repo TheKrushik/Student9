@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.button7:
-                MyIntentService.saveGroup(this, new Group("Group1"));
+                MyIntentService.saveGroup(this, new Group("Gr111"));
                 break;
             case R.id.button8:
                 MyIntentService.getGroup(this, 1);

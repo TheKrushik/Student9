@@ -5,11 +5,10 @@ import android.os.Parcelable;
 
 public class Group implements Parcelable{
     public long id;
-
     public String Number;
 
     public Group(String number) {
-        this.Number = number;
+        Number = number;
     }
 
     public Group() {
